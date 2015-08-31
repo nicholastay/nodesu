@@ -1,5 +1,5 @@
-var request = require('request')
-var extend = require('xtend') // Use simple extend module because I'm lazy to write my own
+var request = require('request');
+var extend = require('xtend'); // Use simple extend module because I'm lazy to write my own
 
 function OsuApi (options) {
   // Bunch of default settings
@@ -9,7 +9,7 @@ function OsuApi (options) {
   };
 
   // "Extend" the user's ones in
-  settings = extend(settings, options)
+  settings = extend(settings, options);
 
   this.settings = settings;
 };
@@ -22,7 +22,7 @@ OsuApi.prototype.raw = function (endpoint, params, cb) {
       return cb(null, body);
     };
 
-    return cb(err)
+    return cb(err);
   });
 };
 
