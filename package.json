@@ -1,0 +1,18 @@
+{
+  "name": "nodesu",
+  "version": "0.1.0",
+  "description": "An API wrapper for the osu! api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicholastay/nodesu.git"
+  },
+  "author": "Nicholas Tay <nexerq@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.61.0"
+  }
+}
