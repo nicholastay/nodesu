@@ -1,5 +1,5 @@
 var modes = {
-  osu: '0',
+  standard: '0',
   taiko: '1',
   ctb: '2',
   mania: '3'
