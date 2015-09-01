@@ -33,16 +33,7 @@ OsuApi.prototype.raw = function (endpoint, params, cb) { // Raw by JavaScript ob
 
   var options = extend(options, params);
 
-  // Construct the url then make request
-  var url = this.settings.apiUri + endpoint + '?';
-  // https://stackoverflow.com/questions/684672/loop-through-javascript-object
-  for (var key in options) {
-    if (options.hasOwnProperty(key)) {
-      url += (key + "=" + options[key] + "&");
-    };
-  };
-
-  request(url, function (err, response, body) {
+  request({baseUrl: this.settings.apiUri, uri: endpoint, qs: options}, function (err, response, body) {
     if (!err && response.statusCode == 200) {
       return cb(null, body);
     };
