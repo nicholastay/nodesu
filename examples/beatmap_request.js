@@ -9,7 +9,7 @@ function round(value, decimals) {
     return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 
-osu.beatmaps(osu.beatmap.byMapset(222428), osu.modes.all, function(err, response) {
+osu.getBeatmaps(osu.beatmap.byMapset(222428), osu.modes.all, function(err, response) {
   if (err) {
     return err;
   }
