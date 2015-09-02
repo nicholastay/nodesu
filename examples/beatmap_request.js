@@ -10,13 +10,14 @@ function round(value, decimals) {
 }
 
 osu.beatmaps(osu.beatmap.byMapset(222428), osu.modes.all, function(err, response) {
-  if (!err) {
-    console.log("Raw output:");
-    console.log(JSON.stringify(response) + "\n");
-    console.log("Parsed response:")
-    var parseResp = "Song name: " + response.title + "\n" + "Artist name: " + response.artist + "\n" + "Mapped by: " + response.creator + "\n" + "[" + response.version + "] (" + response.bpm + "BPM" + ") " + round(response.difficultyrating, 2) + "★"
-    console.log(parseResp)
-    return;
-  }
-  console.log(err);
+  if (err) {
+    return err;
+  };
+
+  console.log("Raw output:");
+  console.log(JSON.stringify(response) + "\n");
+  console.log("Parsed response:")
+  var parseResp = "Song name: " + response[0].title + "\n" + "Artist name: " + response[0].artist + "\n" + "Mapped by: " + response[0].creator + "\n" + "[" + response[0].version + "] (" + response[0].bpm + "BPM" + ") " + round(response[0].difficultyrating, 2) + "★"
+  console.log(parseResp)
+  return;
 });
