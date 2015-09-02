@@ -1,4 +1,4 @@
-var OsuApi = require('../index.js');
+var OsuApi = require('../lib/index.js');
 
 var osu = new OsuApi({
   apiKey: 'your_api_key_here'
