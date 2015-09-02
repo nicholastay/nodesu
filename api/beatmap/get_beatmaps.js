@@ -14,17 +14,17 @@ var get = function (osu, object, mode, cb) {
 
   osuRequest(osu, "/get_beatmaps", params, function(err, response) {
     if (!err) {
-      var parsed = JSON.parse(response)
-      if (parsed.length > 0) { // Not empty code
-        if (parsed.length === 1) {
-          return cb(null, parsed[0]); // Easier to work with if we take off the array and send back if only one map was found
+      if (resp.length > 0) { // Not empty json
+        if (resp.length === 1) {
+          return cb(null, resp[0]); // Easier to work with if we take off the array and send back if only one map was found
         };
-        return cb(null, parsed);
+        return cb(null, resp);
       } else {
         return cb(new Error("Invalid beatmap/beatmap set ID. Could not find listing."))
       };
     };
-    return (err);
+
+    cb (err);
   });
 }
 

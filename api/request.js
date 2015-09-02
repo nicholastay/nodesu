@@ -13,11 +13,17 @@ function jsRequest (osu, endpoint, params, cb) { // Raw by JavaScript object. Ma
   var options = extend(options, params);
 
   request({baseUrl: osu.settings.apiUri, uri: endpoint, qs: options}, function (err, response, body) {
-    if (!err && response.statusCode == 200) {
-      return cb (null, body)
-    };
+    if (err) {
+      return cb (err);
+    }
 
-    return cb (err);
+    body = JSON.parse(body);
+
+    if (body.error) { // Server side error response
+      return cb (new Error("osu! API server side error response: " + body.error))
+    };
+    return cb (null, body)
+
   });
 };
 
