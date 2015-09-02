@@ -11,7 +11,7 @@ function OsuApi (options) {
   settings = extend(settings, options);
 
   this.settings = settings;
-};
+}
 
 OsuApi.prototype.request = function(endpoint, params, cb) {
   return require('./api/request.js')(this, endpoint, params, cb);
@@ -19,7 +19,7 @@ OsuApi.prototype.request = function(endpoint, params, cb) {
 
 OsuApi.prototype.modes = require('./api/modes.js');
 
-OsuApi.prototype.beatmap = require('./api/beatmap/beatmap.js')
+OsuApi.prototype.beatmap = require('./api/beatmap/beatmap.js');
 
 OsuApi.prototype.beatmaps = function(object, mode, cb) {
   return require('./api/beatmap/get_beatmaps.js')(this, object, mode, cb);

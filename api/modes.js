@@ -6,4 +6,4 @@ var modes = {
   all: null // Convenience variable for reading so you don't have to write null to define 'all'
 };
 
-module.exports = modes
+module.exports = modes;
