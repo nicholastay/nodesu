@@ -14,9 +14,6 @@ $ npm install --save nicholastay/nodesu
 More information on API returns and how some parameters work can be found at the [official osu! API GitHub wiki page](https://github.com/ppy/osu-api/wiki). 
 ### Main functions
 (Any function not stated as optional should be required)
-## Usage
-More information on API returns and how some parameters work can be found at the [official osu! API GitHub wiki page](https://github.com/ppy/osu-api/wiki).
-### Main functions
 #### new OsuApi()
 ```javascript
 var OsuApi = require('nodesu');
