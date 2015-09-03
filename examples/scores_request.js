@@ -6,7 +6,7 @@ var osu = new OsuApi({
 
 osu.getScores(osu.beatmap.byMapID(546514), osu.scores.all, osu.mode.all, function(err, response) {
   if (err) {
-    return err;
+    return console.log (err);
   }
 
   console.log("Raw output:");

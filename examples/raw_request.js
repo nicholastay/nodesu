@@ -9,5 +9,5 @@ osu.request('/get_user', {u: "Nexerq"}, function(err, response) {
     console.log(response);
     return;
   }
-  console.log(err);
+  return console.log(err);
 });

@@ -11,7 +11,7 @@ function round(value, decimals) {
 
 osu.getBeatmaps(osu.beatmap.byMapset(222428), osu.mode.all, function(err, response) {
   if (err) {
-    return err;
+    return console.log (err);
   }
 
   console.log("Raw output:");
