@@ -14,7 +14,6 @@ $ npm install --save nicholastay/nodesu
 More information on API returns and how some parameters work can be found at the [official osu! API GitHub wiki page](https://github.com/ppy/osu-api/wiki). 
 ### Main functions
 (Any function not stated as optional should be required)
-=======
 ## Usage
 More information on API returns and how some parameters work can be found at the [official osu! API GitHub wiki page](https://github.com/ppy/osu-api/wiki).
 ### Main functions
@@ -114,27 +113,6 @@ The callback returns with a error parameter and a response parameter. Upon a suc
 
 
 ### Some helper convenience/readability functions/variables
-=======
-```
-The callback returns with a error parameter and a response parameter. Upon a successful response, it should return with an array of beatmaps.
-* `object`: An object, that can be easily constructed with the `beatmap` convenience function (discussed below).
-* `mode`: A string, that can be easily constructed with thhe `mode` convenience function.
-* `callback`: A function to be used as a callback.
-A further example can be found in `examples/beatmap_request.js`.
-
-#### getScores
-```javascript
-osu.getScores(beatmap_object, user_object, mode, callback);
-```
-The callback returns with a error parameter and a response parameter. Upon a successful response, it should return with an array of beatmaps.
-* `beatmap_object`: A beatmap object, that can be easily constructed with the `beatmap` convenience function.
-* `mode`: A string, that can be again easily constructed with a convenience function.
-* `callback`: A function to be used as a callback.
-A further example can be found in `examples/beatmap_request.js`.
-
-
-### Some convenience functions
->>>>>>> a4e5a4c737cb6e5dc5e7c40db9570f020ca66659
 #### beatmap
 ```javascript
 osu.beatmap.*(id, limit)
@@ -171,14 +149,6 @@ The `*` can be replaced with:
 The other variables
 * `id`: An integer or string that is the user ID/username
 * `data`: For `getUser` this is the `event_days` parameter, and this limits the number of days events are grabbed. For any other function this is the `limit` parameter, and this basically limits how many results are returned. (more info on the official wiki)
-=======
-The * can be replaced with:
-* `byUserID`: lookup user by user ID
-* `byUsername`: lookup user by username
-
-The other variables
-* `id`: An integer or string that is the user ID/username
-* `data`: For `getUser` this is the `event_days` parameter. For any other function this is the `limit` parameter. (info on the official wiki)
 
 
 ### mode
