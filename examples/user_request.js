@@ -38,7 +38,7 @@ function getBest () {
   });
 }
 
-// Showcase getUserRecent (pretty much same as above ;)
+// Showcase getUserRecent (pretty much same as above ;D)
 function getRecent() {
     osu.getUserRecent(osu.user.byUsername("Nexerq"), osu.mode.default, function(err, response) { // Same reason as above as to why we use default over all for formatting
     if (err) {
