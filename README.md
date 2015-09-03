@@ -7,13 +7,17 @@ An API wrapper for the [osu! api](https://github.com/ppy/osu-api/wiki), written 
 ## Setup for your project
 ```
 # In your project directory
+# from npmjs
+$ npm install --save nodesu
+
+# or from master repo
 $ npm install --save nicholastay/nodesu
 ```
 
 ## Documentation / Usage
 More information on API returns and how some parameters work can be found at the [official osu! API GitHub wiki page](https://github.com/ppy/osu-api/wiki). 
 ### Main functions
-(Any function not stated as optional should be required)
+(Any argument not stated as optional should be required)
 #### new OsuApi()
 ```javascript
 var OsuApi = require('nodesu');
