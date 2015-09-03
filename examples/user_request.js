@@ -14,10 +14,13 @@ osu.getUser(osu.user.byUsername("Nexerq"), function(err, response) {
   console.log("Raw output:");
   console.log(JSON.stringify(response) + "\n");
   console.log("Parsed response:");
-  var parseResp = "Name: " + response.username + "\nRank: " + response.pp_rank + "\nCountry: " + response.country;
+  var parseResp = "Name: " + response.username + "\nRank: " + response.pp_rank + "\nCountry: " + response.country + "\n";
   console.log(parseResp);
   return getBest();
 });
+
+// For the below, we actually cannot get the beatmap name/artist, as the API only responds with the ID. This would be another call.
+// You can implement that in your own project, but this is only an example.
 
 // Showcase getUserBest
 function getBest () {
@@ -30,7 +33,23 @@ function getBest () {
     console.log("Raw output:");
     console.log(JSON.stringify(response) + "\n");
     console.log("Parsed response:");
-    console.log("Best score: " + response[0].score + "\nPP gained: " + response[0].pp);
-    return;
+    console.log("Best score: " + response[0].score + "\nPP gained: " + response[0].pp + "\n");
+    return getRecent();
+  });
+}
+
+// Showcase getUserRecent (pretty much same as above ;)
+function getRecent() {
+    osu.getUserRecent(osu.user.byUsername("Nexerq"), osu.mode.default, function(err, response) { // Same reason as above as to why we use default over all for formatting
+    if (err) {
+      return console.log (err);
+    }
+
+    console.log("Get user recent request:");
+    console.log("Raw output:");
+    console.log(JSON.stringify(response) + "\n");
+    console.log("Parsed response:");
+    console.log("Most recent beatmap score: " + response.score + "\nPlay rank achiveved: " + response.rank);
+    return getRecent();
   });
 }
