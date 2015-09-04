@@ -4,3 +4,6 @@ npm-debug.log*
 
 #mac
 .DS_Store
+
+#sublime
+*.sublime-workspace

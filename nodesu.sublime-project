@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+  "ternjs": {
+    "exclude": ["node_modules/**"],
+    "libs": ["nodejs"],
+    "plugins": {
+        "requirejs": {
+            "baseURL": "./js"
+        }
+    }
+  }
+}
