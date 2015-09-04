@@ -1,0 +1,5 @@
+{
+  "quotmarks": true, // I don't mind quote marks to be different in each file (but I prefer singles), but however consistency should be kept.
+
+  "node": true // nodejs environment
+}

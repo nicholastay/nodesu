@@ -2,8 +2,21 @@
 	"folders":
 	[
 		{
-			"path": "."
-		}
+			"path": "lib",
+      "folder_exclude_patterns": [".git", "node_modules"]
+		},
+    {
+      "path": "examples",
+    },
+    {
+      "path": "node_modules",
+      "name": "npm modules"
+    },
+    {
+      "path": ".",
+      "name": "root folder",
+      "folder_exclude_patterns": ["*"]
+    }
 	],
   "ternjs": {
     "exclude": ["node_modules/**"],
