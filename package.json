@@ -1,6 +1,6 @@
 {
   "name": "nodesu",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "An API wrapper for the osu! api",
   "main": "./lib/index.js",
   "scripts": {
