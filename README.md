@@ -17,7 +17,7 @@ $ npm install --save nicholastay/nodesu
 ## Documentation / Usage
 More information on API returns and how some parameters work can be found at the [official osu! API GitHub wiki page](https://github.com/ppy/osu-api/wiki). 
 ### Main functions
-(Any argument not stated as optional should be required)
+(Any argument not stated as optional should be required, and all callbacks are returned with the first argument as `err`, returns truthy if has an error, and the second argument is the `response`, which returns whatever the API returns.)
 #### new OsuApi()
 ```javascript
 var OsuApi = require('nodesu');
@@ -130,6 +130,8 @@ The other variables:
 * `id`: An integer or string, that corresponds to the ID of the map/mapset or it can be a username/userid/hash
 * `limit`: (optional) Limit the beatmaps that are returned
 
+This function/variable can also be used to look up things that are returned by the API. For example, the API returns and ID for approval status. You can use `osu.beatmap.approvalStatus[ID]` to look up the ID, for example, `osu.beatmap.approvalStatus[-1]` returns with a string `'WIP'`. Similar lookups can be used with `beatmap.genre` and `beatmap.language`.
+
 
 #### score
 ```javascript
@@ -163,7 +165,10 @@ The `*` can be replaced with (most are self-explanatory):
 * `mania`
 * `all`
 * `default`
+
 This is just for convenience instead of knowing the numbers, as well as for readability. `all` and `default` both return `null`, refer to examples or the module itself to understand usage better.
+
+It can also be used in reverse, for example `osu.mode[0]` will return a string with `'osu!standard'`. This is useful if an API call returns with an ID and you want to look up what the ID means.
 
 
 
