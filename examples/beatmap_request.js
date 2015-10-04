@@ -1,6 +1,6 @@
-var OsuApi = require('../lib/index.js');
+var Osu = require('../lib/index.js');
 
-var osu = new OsuApi({
+var osuApi = new Osu.api({
   apiKey: 'your_api_key_here'
 });
 
@@ -9,7 +9,7 @@ function round(value, decimals) {
     return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 
-osu.getBeatmaps(osu.beatmap.byMapset(222428), osu.mode.all, function(err, response) {
+osuApi.getBeatmaps(osuApi.beatmap.byMapset(222428), osuApi.mode.all, function(err, response) {
   if (err) {
     return console.log (err);
   }

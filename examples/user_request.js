@@ -1,11 +1,11 @@
-var OsuApi = require('../lib/index.js');
+var Osu = require('../lib/index.js');
 
-var osu = new OsuApi({
+var osuApi = new Osu.api({
   apiKey: 'your_api_key_here'
 });
 
 // Showcase getUser
-osu.getUser(osu.user.byUsername("Nexerq"), function(err, response) {
+osuApi.getUser(osuApi.user.byUsername("Nexerq"), function(err, response) {
   if (err) {
     return console.log (err);
   }
@@ -24,7 +24,7 @@ osu.getUser(osu.user.byUsername("Nexerq"), function(err, response) {
 
 // Showcase getUserBest
 function getBest () {
-  osu.getUserBest(osu.user.byUsername("Nexerq"), osu.mode.default, function(err, response) { // PLEASE be mindful that osu.mode.default can be used as .all as it just = null. Default looks better for convenience here as this api call does NOT get all modes, default is standard.
+  osuApi.getUserBest(osu.user.byUsername("Nexerq"), osuApi.mode.default, function(err, response) { // PLEASE be mindful that osu.mode.default can be used as .all as it just = null. Default looks better for convenience here as this api call does NOT get all modes, default is standard.
     if (err) {
       return console.log (err);
     }
@@ -40,7 +40,7 @@ function getBest () {
 
 // Showcase getUserRecent (pretty much same as above ;D)
 function getRecent() {
-    osu.getUserRecent(osu.user.byUsername("Nexerq"), osu.mode.default, function(err, response) { // Same reason as above as to why we use default over all for formatting
+    osuApi.getUserRecent(osuApi.user.byUsername("Nexerq"), osuApi.mode.default, function(err, response) { // Same reason as above as to why we use default over all for formatting
     if (err) {
       return console.log (err);
     }

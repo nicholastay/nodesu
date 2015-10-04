@@ -1,10 +1,10 @@
-var OsuApi = require('../lib/index.js');
+var Osu = require('../lib/index.js');
 
-var osu = new OsuApi({
+var osuApi = new Osu.api({
   apiKey: 'your_api_key_here'
 });
 
-osu.request('/get_user', {u: "Nexerq"}, function(err, response) {
+osuApi.request('/get_user', {u: "Nexerq"}, function(err, response) {
   if (!err) {
     console.log(response);
     return;
