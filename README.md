@@ -1,7 +1,7 @@
 nodesu!
 ======
 
-A libary for [osu!](http://osu.ppy.sh) (its API and chat services), written for and in [node.js](https://nodejs.org/).
+A library for [osu!](http://osu.ppy.sh) (its API and chat services), written for and in [node.js](https://nodejs.org/).
 (node + osu = nodesu!)
 
 ## Setup for your project
