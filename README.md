@@ -15,11 +15,45 @@ $ npm install --save nicholastay/nodesu
 ```
 
 ## Documentation / Usage
+### osu! Chat (Bancho IRC)
+Basically a wrapper for standard IRC connections to osu!bancho chat.
+#### Main functions
+##### new Osu.chat()
+```javascript
+var Osu = require('nodesu');
+
+var osuChat = new Osu.chat({
+  username: 'osu! username',
+  password: 'osu! IRC password (https://osu.ppy.sh/p/irc)'
+});
+```
+Start by requiring the module, then defining your username and IRC password
+
+(Other variables able to be passed are `server` (str), `port` (int), and `channels` (array).)
+
+##### connect
+```javascript
+osuChat.connect();
+```
+Connects to osu! chat with the credentials defined above.
+
+#### Events
+Events are standard node.js `events.EventEmitter` events. They can be caught with `.on`. All event data is returned in an object. Example can be found in `examples/chat_client.js`.
+
+Events include:
+* `connected`: connected to IRC server
+* `error`: (important) catching errors if IRC or the client throw any.
+* `message`: on any message, private or channel
+* `action`: on a `/me` message
+* `pm`: on a private message
+
+---------------------------------------
+
 ### osu! API
 More information on API returns and how some parameters work can be found at the [official osu! API GitHub wiki page](https://github.com/ppy/osu-api/wiki). 
 #### Main functions
 (Any argument not stated as optional should be required, and all callbacks are returned with the first argument as `err`, returns truthy if has an error, and the second argument is the `response`, which returns whatever the API returns.)
-##### new OsuApi()
+##### new Osu.api()
 ```javascript
 var Osu = require('nodesu');
 
@@ -28,6 +62,8 @@ var osuApi = new Osu.api({
 });
 ```
 Get started by requiring the module and defining your API key.
+
+(Another variable able to be passed is `uri`, which is set default to `https://osu.ppy.sh/api`. This can be set to elsewhere if it changes in the future)
 
 ##### raw
 ```javascript
