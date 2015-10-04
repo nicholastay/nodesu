@@ -15,22 +15,23 @@ $ npm install --save nicholastay/nodesu
 ```
 
 ## Documentation / Usage
+### osu! API
 More information on API returns and how some parameters work can be found at the [official osu! API GitHub wiki page](https://github.com/ppy/osu-api/wiki). 
-### Main functions
+#### Main functions
 (Any argument not stated as optional should be required, and all callbacks are returned with the first argument as `err`, returns truthy if has an error, and the second argument is the `response`, which returns whatever the API returns.)
-#### new OsuApi()
+##### new OsuApi()
 ```javascript
-var OsuApi = require('nodesu');
+var Osu = require('nodesu');
 
-var osu = new OsuApi({
+var osuApi = new Osu.api({
   apiKey: 'your_key_here'
 });
 ```
 Get started by requiring the module and defining your API key.
 
-#### raw
+##### raw
 ```javascript
-osu.raw(endpoint, params, callback);
+osuApi.raw(endpoint, params, callback);
 ```
 Sends a request to the osu! API with your parameters
 * `endpoint`: A string containing the endpoint, e.g. `'/get_user'`
@@ -39,32 +40,32 @@ Sends a request to the osu! API with your parameters
 
 A further example can be found in `examples/raw_request.js`.
 
-#### getBeatmaps
+##### getBeatmaps
 ```javascript
-osu.getBeatmaps(object, mode, callback);
+osuApi.getBeatmaps(object, mode, callback);
 ```
 The callback returns with a error parameter and a response parameter. Upon a successful response, it should return with an array of beatmaps.
 * `object`: An object, that can be easily constructed with the `beatmap` helper function (discussed below).
-* `mode`: (optional, if so use `osu.mode.all`) A string, that can be easily constructed with thhe `mode` helper function.
+* `mode`: (optional, if so use `osuApi.mode.all`) A string, that can be easily constructed with thhe `mode` helper function.
 * `callback`: A function to be used as a callback.
 
 A further example can be found in `examples/beatmap_request.js`.
 
-#### getScores
+##### getScores
 ```javascript
-osu.getScores(beatmap_object, user_object, mode, callback);
+osuApi.getScores(beatmap_object, user_object, mode, callback);
 ```
 The callback returns with a error parameter and a response parameter. Upon a successful response, it should return with an array of scores for the chosen beatmap.
 * `beatmap_object`: A object, that can be easily constructed with the `beatmap` helper function. Only `.byMapID` can be used as this API call can only take beatmap IDs.
-* `user_object`: (optional, if so use `osu.user.all`) A object, that can be easily constructed with the `user` helper function.
-* `mode`: (optional, if so use `osu.mode.all`) A string, that can be again easily constructed with a helper function.
+* `user_object`: (optional, if so use `osuApi.user.all`) A object, that can be easily constructed with the `user` helper function.
+* `mode`: (optional, if so use `osuApi.mode.all`) A string, that can be again easily constructed with a helper function.
 * `callback`: A function to be used as a callback.
 
 A further example can be found in `examples/beatmap_request.js`.
 
-#### getUser
+##### getUser
 ```javascript
-osu.getUser(object, callback);
+osuApi.getUser(object, callback);
 ```
 The callback returns with a error parameter and a response parameter. Upon a successful response, it should return with an object of the user.
 * `object`: An object, that can be easily constructed with the `user` convenience function (discussed below).
@@ -72,39 +73,39 @@ The callback returns with a error parameter and a response parameter. Upon a suc
 
 A further example can be found in `examples/user_request.js`.
 
-#### getUserBest
+##### getUserBest
 ```javascript
-osu.getUserBest(object, mode, callback);
+osuApi.getUserBest(object, mode, callback);
 ```
 The callback returns with a error parameter and a response parameter. Upon a successful response, it should return with an array of beatmaps containing the user's best scores.
 * `object`: An object, that can be easily constructed with the `user` helper function (discussed below).
-* `mode`: (optional, if so use `osu.mode.all`) A string, that can be easily constructed with thhe `mode` helper function.
+* `mode`: (optional, if so use `osuApi.mode.all`) A string, that can be easily constructed with thhe `mode` helper function.
 * `callback`: A function to be used as a callback.
 
 A further example can be found in `examples/user_request.js`.
 
-#### getUserRecent
+##### getUserRecent
 ```javascript
-osu.getUserBest(object, mode, callback);
+osuApi.getUserBest(object, mode, callback);
 ```
 The callback returns with a error parameter and a response parameter. Upon a successful response, it should return with an array of beatmaps containing the user's most recent scores. It may throw an error if there are no scores in there, as they may not have played recently.
 * `object`: An object, that can be easily constructed with the `user` helper function (discussed below).
-* `mode`: (optional, if so use `osu.mode.all`) A string, that can be easily constructed with thhe `mode` helper function.
+* `mode`: (optional, if so use `osuApi.mode.all`) A string, that can be easily constructed with thhe `mode` helper function.
 * `callback`: A function to be used as a callback.
 
 A further example can be found in `examples/user_request.js`.
 
-#### getMatch
+##### getMatch
 ```javascript
-osu.getUserBest(id, callback);
+osuApi.getUserBest(id, callback);
 ```
 The callback returns with a error parameter and a response parameter. Upon a successful response, it should return with an array with a multiplayer match's data.
 * `id`: The multiplayer match ID (can be expressed in integer or string)
 * `callback`: A function to be used as a callback.
 
-#### getReplay
+##### getReplay
 ```javascript
-osu.getScores(beatmap_object, user_object, mode, callback);
+osuApi.getScores(beatmap_object, user_object, mode, callback);
 ```
 The callback returns with a error parameter and a response parameter. Upon a successful response, it should return with the replay data encoded in base64 by the server.
 * `beatmap_object`: A object, that can be easily constructed with the `beatmap` helper function. Only a beatmap ID can be used.
@@ -113,10 +114,10 @@ The callback returns with a error parameter and a response parameter. Upon a suc
 * `callback`: A function to be used as a callback.
 
 
-### Some helper convenience/readability functions/variables
-#### beatmap
+#### Some helper convenience/readability functions/variables
+##### beatmap
 ```javascript
-osu.beatmap.*(id, limit)
+osuApi.beatmap.*(id, limit)
 ```
 The * can be replaced with:
 * `byMapset`: lookup beatmap by mapset
@@ -130,19 +131,19 @@ The other variables:
 * `id`: An integer or string, that corresponds to the ID of the map/mapset or it can be a username/userid/hash
 * `limit`: (optional) Limit the beatmaps that are returned
 
-This function/variable can also be used to look up things that are returned by the API. For example, the API returns and ID for approval status. You can use `osu.beatmap.approvalStatus[ID]` to look up the ID, for example, `osu.beatmap.approvalStatus[-1]` returns with a string `'WIP'`. Similar lookups can be used with `beatmap.genre` and `beatmap.language`.
+This function/variable can also be used to look up things that are returned by the API. For example, the API returns and ID for approval status. You can use `osuApi.beatmap.approvalStatus[ID]` to look up the ID, for example, `osuApi.beatmap.approvalStatus[-1]` returns with a string `'WIP'`. Similar lookups can be used with `beatmap.genre` and `beatmap.language`.
 
 
-#### score
+##### score
 ```javascript
-osu.score.all
+osuApi.score.all
 ```
 This just returns `null`, which can be used to return all scores when using `getScores`. It is just a convenience and ease of reading function. Refer to `examples/scores_request.js` for a better indication.
 
 
-### user
+#### user
 ```javascript
-osu.user.*(id, data)
+osuApi.user.*(id, data)
 ```
 The `*` can be replaced with:
 * `byUserID`: lookup user by user ID
@@ -154,9 +155,9 @@ The other variables
 * `data`: For `getUser` this is the `event_days` parameter, and this limits the number of days events are grabbed. For any other function this is the `limit` parameter, and this basically limits how many results are returned. (more info on the official wiki)
 
 
-### mode
+#### mode
 ```javascript
-osu.mode.*
+osuApi.mode.*
 ```
 The `*` can be replaced with (most are self-explanatory):
 * `standard`
@@ -168,7 +169,7 @@ The `*` can be replaced with (most are self-explanatory):
 
 This is just for convenience instead of knowing the numbers, as well as for readability. `all` and `default` both return `null`, refer to examples or the module itself to understand usage better.
 
-It can also be used in reverse, for example `osu.mode[0]` will return a string with `'osu!standard'`. This is useful if an API call returns with an ID and you want to look up what the ID means.
+It can also be used in reverse, for example `osuApi.mode[0]` will return a string with `'osu!standard'`. This is useful if an API call returns with an ID and you want to look up what the ID means.
 
 
 
