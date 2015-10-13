@@ -38,7 +38,7 @@ osuChat.connect();
 Connects to osu! chat with the credentials defined above.
 
 #### Events
-Events are standard node.js `events.EventEmitter` events. They can be caught with `.on`. All event data is returned in an object. Example can be found in `examples/chat_client.js`.
+Events are standard node.js `events.EventEmitter` events. They can be caught with `.on`. Example can be found in `examples/chat_client.js`.
 
 Events include:
 * `connected`: connected to IRC server

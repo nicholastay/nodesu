@@ -1,6 +1,6 @@
 {
   "name": "nodesu",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A library for the video game, osu!. (API and chat)",
   "main": "./lib/index.js",
   "scripts": {
