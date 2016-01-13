@@ -17,6 +17,9 @@ $ npm install --save nicholastay/nodesu
 ## Documentation / Usage
 ### osu! Chat (Bancho IRC)
 Basically a wrapper for standard IRC connections to osu!bancho chat.
+
+Implemented with the `irc` module on npm, you can read more about it on that page.
+
 #### Main functions
 ##### new Osu.chat()
 ```javascript
@@ -52,7 +55,12 @@ Events include:
 ### osu! API
 More information on API returns and how some parameters work can be found at the [official osu! API GitHub wiki page](https://github.com/ppy/osu-api/wiki). 
 #### Main functions
-(Any argument not stated as optional should be required, and all callbacks are returned with the first argument as `err`, returns truthy if has an error, and the second argument is the `response`, which returns whatever the API returns.)
+(Any argument not stated as optional should be required)
+
+Promises are implemented with Q and can be used, but callbacks can also be used as below.
+
+Callbacks: All callbacks are returned with the first argument as `err`, returns truthy if has an error, and the second argument is the `response`, which returns whatever the API returns.
+
 ##### new Osu.api()
 ```javascript
 var Osu = require('nodesu');
