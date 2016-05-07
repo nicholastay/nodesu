@@ -5,7 +5,7 @@ var osuApi = new Osu.api({
 });
 
 // Showcase getUser
-osuApi.getUser(osuApi.user.byUsername("Nexerq"), function(err, response) {
+osuApi.getUser(osuApi.user.byUsername("Nexerq"), osuApi.mode.all, function(err, response) {
   if (err) {
     return console.log (err);
   }
