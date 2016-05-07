@@ -109,10 +109,11 @@ A further example can be found in `examples/beatmap_request.js`.
 
 ##### getUser
 ```javascript
-osuApi.getUser(object, callback);
+osuApi.getUser(object, mode, callback);
 ```
 The callback returns with a error parameter and a response parameter. Upon a successful response, it should return with an object of the user.
 * `object`: An object, that can be easily constructed with the `user` convenience function (discussed below).
+* `mode`: (optional, if so use `osuApi.mode.all`) A string, that can be easily constructed with the helper function.
 * `callback`: A function to be used as a callback.
 
 A further example can be found in `examples/user_request.js`.
