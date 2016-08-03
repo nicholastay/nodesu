@@ -53,7 +53,7 @@ Events include:
 ---------------------------------------
 
 ### osu! API
-More information on API returns and how some parameters work can be found at the [official osu! API GitHub wiki page](https://github.com/ppy/osu-api/wiki). 
+More information on API returns and how some parameters work can be found at the [official osu! API GitHub wiki page](https://github.com/ppy/osu-api/wiki).
 #### Main functions
 (Any argument not stated as optional should be required)
 
@@ -71,7 +71,7 @@ var osuApi = new Osu.api({
 ```
 Get started by requiring the module and defining your API key.
 
-(Another variable able to be passed is `uri`, which is set default to `https://osu.ppy.sh/api`. This can be set to elsewhere if it changes in the future)
+You can also pass other variables such as `uri`, which is set default to `https://osu.ppy.sh/api`, and `reqsPerMinute` which is set default to 600. Set `reqsPerMinute` to null to disable the rate-limiter.
 
 ##### raw
 ```javascript
