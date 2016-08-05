@@ -51,5 +51,6 @@ function getRecent() {
     console.log("Parsed response:");
     console.log("Most recent beatmap score: " + response.score + "\nPlay rank achiveved: " + response.rank);
     return getRecent();
+    console.log("Total API calls: "+osuApi.getRequestsCount());
   });
 }
