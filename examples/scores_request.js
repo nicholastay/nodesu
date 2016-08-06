@@ -14,6 +14,6 @@ osuApi.getScores(osuApi.beatmap.byMapID(546514), osuApi.scores.all, osuApi.mode.
   console.log("Parsed response:");
   var parseResp = "Rank #1 globally on this map: " + response[0].username + "\nScore: " + response[0].score + "\nTimestamp achieved:" + response[0].date;
   console.log(parseResp);
-  console.log("Total API calls: "+osuApi.getRequestsCount());
+  console.log("Total API calls: "+osuApi.requestsCount);
   return;
 });

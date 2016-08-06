@@ -50,7 +50,7 @@ function getRecent() {
     console.log(JSON.stringify(response) + "\n");
     console.log("Parsed response:");
     console.log("Most recent beatmap score: " + response[0].score + "\nPlay rank achiveved: " + response[0].rank);
-    console.log("Total API calls: "+osuApi.getRequestsCount());
+    console.log("Total API calls: "+osuApi.requestsCount);
     return;
   });
 }
