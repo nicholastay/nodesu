@@ -24,7 +24,7 @@ osuApi.getUser(osuApi.user.byUsername("Nexerq"), osuApi.mode.all, function(err, 
 
 // Showcase getUserBest
 function getBest () {
-  osuApi.getUserBest(osu.user.byUsername("Nexerq"), osuApi.mode.default, function(err, response) { // PLEASE be mindful that osu.mode.default can be used as .all as it just = null. Default looks better for convenience here as this api call does NOT get all modes, default is standard.
+  osuApi.getUserBest(osuApi.user.byUsername("Nexerq"), osuApi.mode.default, function(err, response) { // PLEASE be mindful that osu.mode.default can be used as .all as it just = null. Default looks better for convenience here as this api call does NOT get all modes, default is standard.
     if (err) {
       return console.log (err);
     }
@@ -49,7 +49,8 @@ function getRecent() {
     console.log("Raw output:");
     console.log(JSON.stringify(response) + "\n");
     console.log("Parsed response:");
-    console.log("Most recent beatmap score: " + response.score + "\nPlay rank achiveved: " + response.rank);
-    return getRecent();
+    console.log("Most recent beatmap score: " + response[0].score + "\nPlay rank achiveved: " + response[0].rank);
+    console.log("Total API calls: "+osuApi.requestsCount);
+    return;
   });
 }

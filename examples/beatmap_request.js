@@ -34,6 +34,7 @@ function getByPromise() {
     console.log("Parsed response:");
     var parseResp = "Song name: " + response[0].title + "\n" + "Artist name: " + response[0].artist + "\n" + "Mapped by: " + response[0].creator + "\n" + "[" + response[0].version + "] (" + response[0].bpm + "BPM" + ") " + round(response[0].difficultyrating, 2) + "★";
     console.log(parseResp);
+    console.log("Total API calls: "+osuApi.requestsCount);
     return;
   })
   .catch(function(err) {
