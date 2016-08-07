@@ -217,6 +217,53 @@ This is just for convenience instead of knowing the numbers, as well as for read
 It can also be used in reverse, for example `osuApi.mode[0]` will return a string with `'osu!standard'`. This is useful if an API call returns with an ID and you want to look up what the ID means.
 
 
+---------------------------------------
+
+### osu! URL Schema Generator
+Generates a URL based upon the osu! URL schema that the user can click on for example through a hyperlink to do something. More information on this can also be found on the official osu! API documentation.
+
+##### nodesu.urlSchema
+```javascript
+var osuUrlSchema = require('nodesu').urlSchema;
+```
+Require the module and use the static class.
+
+##### multiplayer
+Launches the osu! client and connects to the multiplayer match.
+```javascript
+osuUrlSchema.multiplayer(matchId, password);
+```
+* `matchId`: The ID of the multiplayer match
+* `password`: (Optional) the match password
+
+##### editor
+Skips to a certain timing in the osu! editor while they are editing.
+```javascript
+osuUrlSchema.editor(timings);
+```
+* `timings`: String of timings
+
+##### chatChannel
+Loads a certain chat channel in the osu! client.
+```javascript
+osuUrlSchema.chatChannel(channel);
+```
+* `channel`: The chat channel to join. (`#` in front of the name is optional)
+
+##### directDownload
+Loads a beatmap to download in the osu! client (the user must have supporter to use this).
+```javascript
+osuUrlSchema.directDownload(mapsetId);
+```
+* `mapsetId`: The ID of the beatmap set.
+
+##### spectate
+Spectates a certain user in the osu! client.
+```javascript
+osuUrlSchema.spectate(id);
+```
+* `id`: The user to spectate's username or user ID.
+
 
 ## Contributing / Setup for development
 To contribute, you should fork this project then I will review and accept as required pull requests.
