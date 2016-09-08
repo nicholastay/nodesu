@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/nicholastay/nodesu/issues"
   },
-  "homepage": "https://github.com/nicholastay/nodesu#readme"
+  "homepage": "https://github.com/nicholastay/nodesu#readme",
+  "dependencies": {
+    "limiter": "^1.1.0"
+  }
 }
