@@ -5,9 +5,5 @@ const config = require('./config.json');
 
 const api = new Nodesu.Client(config.apiKey);
 api
-    .raw('/get_user', {
-        u: 'Nexerq',
-        type: 'string'
-    })
-    .then(d => d[0])
+    .user.get('Nexerq', Nodesu.Mode.mania)
     .then(console.log);
