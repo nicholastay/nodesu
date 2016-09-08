@@ -1,0 +1,27 @@
+{
+  "name": "nodesu",
+  "version": "0.6.0",
+  "description": "node.js osu! api wrapper",
+  "main": "nodesu.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholastay/nodesu.git"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "keywords": [
+    "osu!",
+    "api",
+    "wrapper"
+  ],
+  "author": "Nicholas Tay <nexerq@gmail.com> (http://nicholastay.github.io)",
+  "license": "Zlib",
+  "bugs": {
+    "url": "https://github.com/nicholastay/nodesu/issues"
+  },
+  "homepage": "https://github.com/nicholastay/nodesu#readme"
+}
