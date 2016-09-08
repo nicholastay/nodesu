@@ -2,7 +2,10 @@
 
 exports.Client = require('./lib/Client');
 exports.Constants = require('./lib/Constants');
-exports.LookupType = require('./lib/LookupType');
-exports.Mode = require('./lib/Mode');
-exports.Converts = require('./lib/Converts');
-exports.Mods = require('./lib/Mods');
+
+// enums
+exports.LookupType = require('./lib/enum/LookupType');
+exports.Mode = require('./lib/enum/Mode');
+exports.Converts = require('./lib/enum/Converts');
+exports.Mods = require('./lib/enum/Mods');
+exports.ApprovalStatus = require('./lib/enum/ApprovalStatus');
