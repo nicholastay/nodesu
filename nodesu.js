@@ -11,6 +11,9 @@ exports.Mods = require('./lib/enum/Mods');
 exports.ApprovalStatus = require('./lib/enum/ApprovalStatus');
 exports.Genre = require('./lib/enum/Genre');
 exports.Language = require('./lib/enum/Language');
+exports.MultiScoringType = require('./lib/enum/MultiScoringType');
+exports.MultiTeam = require('./lib/enum/MultiTeam');
+exports.MultiTeamType = require('./lib/enum/MultiTeamType');
 
 // classes
 exports.Beatmap = require('./lib/struct/Beatmap');
