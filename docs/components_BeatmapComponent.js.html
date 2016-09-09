@@ -29,7 +29,8 @@
             <pre class="prettyprint source linenums"><code>'use strict';
 
 const Component = require('./Component')
-    , ApiConstants = require('../Constants').API;
+    , ApiConstants = require('../Constants').API
+    , Beatmap = require('../struct/Beatmap');
 
 /**
  * Beatmap-related API component
@@ -47,7 +48,7 @@ class BeatmapComponent extends Component {
         if (lookupType)
             options.type = lookupType;
 
-        return this.api.requester.get(ApiConstants.BEATMAPS_GET, options, true, true);
+        return this.api.requester.get(ApiConstants.BEATMAPS_GET, options, true, true, Beatmap);
     }
 
     /**
@@ -56,7 +57,7 @@ class BeatmapComponent extends Component {
      * @param {Mode} [mode] The gamemode of maps to find.
      * @param {Number} [limit] The limit of maps to find.
      * @param {Converts} [includeConverts] If converts should be included in the lookup.
-     * @return {Promise&lt;Object[]>} The object array from the API.
+     * @return {Promise&lt;Object[]|Beatmap[]>} The object array from the API, or Beatmap object array if parsing is enabled.
      */
     getBySetId(setId, mode, limit, includeConverts) {
         return this._get('s', setId, mode, limit, includeConverts);
@@ -68,7 +69,7 @@ class BeatmapComponent extends Component {
      * @param {Mode} [mode] The gamemode of maps to find.
      * @param {Number} [limit] The limit of maps to find.
      * @param {Converts} [includeConverts] If converts should be included in the lookup.
-     * @return {Promise&lt;Object[]>} The object array from the API.
+     * @return {Promise&lt;Object[]|Beatmap[]>} The object array from the API, or Beatmap object array if parsing is enabled.
      */
     getByBeatmapId(beatmapId, mode, limit, includeConverts) {
         return this._get('b', beatmapId, mode, limit, includeConverts);
@@ -81,7 +82,7 @@ class BeatmapComponent extends Component {
      * @param {Number} [limit] The limit of maps to find.
      * @param {Converts} [includeConverts] If converts should be included in the lookup.
      * @param {LookupType} [lookupType] The type of lookup of the user.
-     * @return {Promise&lt;Object[]>} The object array from the API.
+     * @return {Promise&lt;Object[]|Beatmap[]>} The object array from the API, or Beatmap object array if parsing is enabled.
      */
     getByUser(user, mode, limit, includeConverts, lookupType) {
         return this._get('u', user, mode, limit, includeConverts, lookupType);
@@ -93,7 +94,7 @@ class BeatmapComponent extends Component {
      * @param {Mode} [mode] The gamemode of maps to find.
      * @param {Number} [limit] The limit of maps to find.
      * @param {Converts} [includeConverts] If converts should be included in the lookup.
-     * @return {Promise&lt;Object[]>} The object array from the API.
+     * @return {Promise&lt;Object[]|Beatmap[]>} The object array from the API, or Beatmap object array if parsing is enabled.
      */
     getByBeatmapHash(hash, mode, limit, includeConverts) {
         return this._get('h', hash, mode, limit, includeConverts);
@@ -110,13 +111,13 @@ module.exports = BeatmapComponent;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BeatmapComponent.html">BeatmapComponent</a></li><li><a href="Client.html">Client</a></li><li><a href="Component.html">Component</a></li><li><a href="OsuApiError.html">OsuApiError</a></li><li><a href="Ratelimiting.html">Ratelimiting</a></li><li><a href="ReplayComponent.html">ReplayComponent</a></li><li><a href="Requester.html">Requester</a></li><li><a href="ScoresComponent.html">ScoresComponent</a></li><li><a href="UserComponent.html">UserComponent</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Converts">Converts</a></li><li><a href="global.html#LookupType">LookupType</a></li><li><a href="global.html#Mode">Mode</a></li><li><a href="global.html#Mods">Mods</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Beatmap.html">Beatmap</a></li><li><a href="BeatmapComponent.html">BeatmapComponent</a></li><li><a href="BeatmapScore.html">BeatmapScore</a></li><li><a href="Client.html">Client</a></li><li><a href="Multi.html">Multi</a></li><li><a href="MultiComponent.html">MultiComponent</a></li><li><a href="MultiGame.html">MultiGame</a></li><li><a href="MultiMatch.html">MultiMatch</a></li><li><a href="MultiScore.html">MultiScore</a></li><li><a href="OsuApiError.html">OsuApiError</a></li><li><a href="ReplayComponent.html">ReplayComponent</a></li><li><a href="Requester.html">Requester</a></li><li><a href="Score.html">Score</a></li><li><a href="ScoresComponent.html">ScoresComponent</a></li><li><a href="User.html">User</a></li><li><a href="UserComponent.html">UserComponent</a></li><li><a href="UserEvent.html">UserEvent</a></li><li><a href="UserScore.html">UserScore</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ApprovalStatus">ApprovalStatus</a></li><li><a href="global.html#Converts">Converts</a></li><li><a href="global.html#Genre">Genre</a></li><li><a href="global.html#Language">Language</a></li><li><a href="global.html#LookupType">LookupType</a></li><li><a href="global.html#Mode">Mode</a></li><li><a href="global.html#Mods">Mods</a></li><li><a href="global.html#MultiScoringType">MultiScoringType</a></li><li><a href="global.html#MultiTeam">MultiTeam</a></li><li><a href="global.html#MultiTeamType">MultiTeamType</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Thu Sep 08 2016 22:43:50 GMT+1000 (AEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Fri Sep 09 2016 23:48:23 GMT+1000 (AEST)
 </footer>
 
 <script> prettyPrint(); </script>

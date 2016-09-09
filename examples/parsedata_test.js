@@ -5,5 +5,5 @@ const config = require('./config.json');
 
 const api = new Nodesu.Client(config.apiKey, { parseData: true });
 api
-    .beatmaps.getByBeatmapId('646609')
+    .user.get('4222959')
     .then(console.log);

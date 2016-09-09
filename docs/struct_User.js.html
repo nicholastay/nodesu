@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: OsuApiError</title>
+    <title>JSDoc: Source: struct/User.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,182 +17,67 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: OsuApiError</h1>
+    <h1 class="page-title">Source: struct/User.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>OsuApiError</h2>
-        
-            <div class="class-description">Error from the osu! API.</div>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-    <h2>Constructor</h2>
-    
-
-    <h4 class="name" id="OsuApiError"><span class="type-signature"></span>new OsuApiError<span class="signature">(message)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Creates the osu! API error object.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>message</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Describes the error caused from the osu! API.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="error_OsuApiError.js.html">error/OsuApiError.js</a>, <a href="error_OsuApiError.js.html#line6">line 6</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+const UserEvent = require('./UserEvent');
+
+/**
+ * User class.
+ * @property {Number} id User's ID [alias: userId]
+ * @property {String} username Username [alias: name]
+ * @property {Number} count300
+ * @property {Number} count100
+ * @property {Number} count50
+ * @property {Number} playcount
+ * @property {Number} rankedScore
+ * @property {Number} totalScore
+ * @property {Number} ppRank [alias: rank]
+ * @property {Number} accuracy
+ * @property {Number} countRankSS
+ * @property {Number} countRankS
+ * @property {Number} countRankA
+ * @property {Number} country
+ * @property {Number} ppCountryRank [alias: countryRank]
+ * @property {UserEvent[]} events Array of user events
+ */
+class User {
+    constructor(data) {
+        this.id = Number(data.user_id);
+        this.username = data.username;
+        this.count300 = Number(data.count300);
+        this.count100 = Number(data.count100);
+        this.count50 = Number(data.count50);
+        this.playcount = Number(data.playcount);
+        this.rankedScore = Number(data.ranked_score);
+        this.totalScore = Number(data.total_score);
+        this.ppRank = Number(data.pp_rank);
+        this.accuracy = Number(data.accuracy);
+        this.countRankSS = Number(data.count_rank_ss);
+        this.countRankS = Number(data.count_rank_s);
+        this.countRankA = Number(data.count_rank_a);
+        this.country = data.country;
+        this.ppCountryRank = Number(data.pp_country_rank);
+        this.events = data.events.map(d => new UserEvent(d));
+    }
+
+    get userId() { return this.id; }
+    get name() { return this.username; }
+    get rank() { return this.ppRank; }
+    get countryRank() { return this.ppCountryRank; }
+}
+
+module.exports = User;</code></pre>
+        </article>
+    </section>
 
 
 

@@ -35,7 +35,7 @@ const ApiConstants = require('./Constants').API
     , OsuApiError = require('./error/OsuApiError');
 
 /**
- * Class for API requests
+ * Class for internal API requests
  * @property {String} userAgent The useragent used to make requests.
  */
 class Requester {
@@ -50,25 +50,38 @@ class Requester {
 
     /**
      * Gets data from an API endpoint.
-     * @param  {String} endpoint        The endpoint to get the data from.
-     * @param  {Object} payloadOptions  An object of options to be used as the query string.
-     * @param  {Boolean} withKey        To use the API key defined in the parent client or not.
-     * @param  {Boolean} ratelimit      Ratelimit the request on the main bucket if ratelimiting is enabled.
-     * @return {Promise&lt;Object>}        The returned data from the API.
+     * @param {String} endpoint The endpoint to get the data from.
+     * @param {Object} payloadOptions An object of options to be used as the query string.
+     * @param {Boolean} withKey To use the API key defined in the parent client or not.
+     * @param {Boolean} ratelimit Ratelimit the request on the main bucket if ratelimiting is enabled.
+     * @param {Any} castType "Cast" the elements of the array to the certain type.
+     * @return {Promise&lt;Object[]|Any>} The returned object array from the API or Type[] as defined in castType.
      */
-    get(endpoint, payloadOptions, withKey, ratelimit) {
+    get(endpoint, payloadOptions, withKey, ratelimit, castType) {
+        let p = () => {
+            let prom = this._get(endpoint, payloadOptions, withKey);
+
+            if (castType &amp;&amp; this.api.parseData) {
+                return prom
+                    .then(d => {
+                        if (Array.isArray(d))
+                            return d.map(f => new castType(f));
+                        return new castType(d);
+                    });
+            }
+
+            return prom;
+        };
+
         if (ratelimit &amp;&amp; !this.api.disableRateLimiting) {
-            // this probably needs to be cleaned up somehow
             return new Promise((resolve, reject) => {
                 this.api.ratelimiting.mainBucket.removeTokens(1, () => {
-                    this._get(endpoint, payloadOptions, withKey)
-                        .then(resolve)
-                        .catch(reject);
+                    p().then(resolve).catch(reject);
                 });
             });
         }
 
-        return this._get(endpoint, payloadOptions, withKey);
+        return p();
     }
 
     _get(endpoint, payloadOptions, withKey) {
@@ -96,11 +109,11 @@ class Requester {
                         j = JSON.parse(data);
                     }
                     catch (e) {
-                        reject(e);
+                        return reject(e);
                     }
 
                     if (j.error) // error from api
-                        reject(new OsuApiError(j.error));
+                        return reject(new OsuApiError(j.error));
 
                     resolve(j); // resolve json
                 });
@@ -119,13 +132,13 @@ module.exports = Requester;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BeatmapComponent.html">BeatmapComponent</a></li><li><a href="Client.html">Client</a></li><li><a href="Component.html">Component</a></li><li><a href="OsuApiError.html">OsuApiError</a></li><li><a href="Ratelimiting.html">Ratelimiting</a></li><li><a href="ReplayComponent.html">ReplayComponent</a></li><li><a href="Requester.html">Requester</a></li><li><a href="ScoresComponent.html">ScoresComponent</a></li><li><a href="UserComponent.html">UserComponent</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Converts">Converts</a></li><li><a href="global.html#LookupType">LookupType</a></li><li><a href="global.html#Mode">Mode</a></li><li><a href="global.html#Mods">Mods</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Beatmap.html">Beatmap</a></li><li><a href="BeatmapComponent.html">BeatmapComponent</a></li><li><a href="BeatmapScore.html">BeatmapScore</a></li><li><a href="Client.html">Client</a></li><li><a href="Multi.html">Multi</a></li><li><a href="MultiComponent.html">MultiComponent</a></li><li><a href="MultiGame.html">MultiGame</a></li><li><a href="MultiMatch.html">MultiMatch</a></li><li><a href="MultiScore.html">MultiScore</a></li><li><a href="OsuApiError.html">OsuApiError</a></li><li><a href="ReplayComponent.html">ReplayComponent</a></li><li><a href="Requester.html">Requester</a></li><li><a href="Score.html">Score</a></li><li><a href="ScoresComponent.html">ScoresComponent</a></li><li><a href="User.html">User</a></li><li><a href="UserComponent.html">UserComponent</a></li><li><a href="UserEvent.html">UserEvent</a></li><li><a href="UserScore.html">UserScore</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ApprovalStatus">ApprovalStatus</a></li><li><a href="global.html#Converts">Converts</a></li><li><a href="global.html#Genre">Genre</a></li><li><a href="global.html#Language">Language</a></li><li><a href="global.html#LookupType">LookupType</a></li><li><a href="global.html#Mode">Mode</a></li><li><a href="global.html#Mods">Mods</a></li><li><a href="global.html#MultiScoringType">MultiScoringType</a></li><li><a href="global.html#MultiTeam">MultiTeam</a></li><li><a href="global.html#MultiTeamType">MultiTeamType</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Thu Sep 08 2016 22:43:50 GMT+1000 (AEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Fri Sep 09 2016 23:48:23 GMT+1000 (AEST)
 </footer>
 
 <script> prettyPrint(); </script>

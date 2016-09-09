@@ -33,15 +33,19 @@ const Requester = require('./Requester')
     , UserComponent = require('./components/UserComponent')
     , BeatmapComponent = require('./components/BeatmapComponent')
     , ScoresComponent = require('./components/ScoresComponent')
-    , ReplayComponent = require('./components/ReplayComponent');
+    , ReplayComponent = require('./components/ReplayComponent')
+    , MultiComponent = require('./components/MultiComponent');
 
 /**
  * The main osu! API client.
- * @property {String} apiKey The osu! API key in use.
  * @property {UserComponent} user The set of functions that are related to the User section.
  * @property {BeatmapComponent} beatmaps The set of functions that are related to the Beatmap section.
  * @property {ScoresComponent} scores The set of functions that are related to the Score section.
  * @property {ReplayComponent} replay The set of functions that are related to the Replay section.
+ * @property {String} apiKey The osu! API key in use.
+ * @property {Boolean} disableRateLimiting Should ratelimiting be used throughout the client instance.
+ * @property {Number} requestsPerMinute How many requests per minute are allowed if ratelimiting is used.
+ * @property {Boolean} parseData If data should be parsed into our custom nodesu classes. (experimental and could be subject to break)
  */
 class Client {
     /**
@@ -50,6 +54,7 @@ class Client {
      * @param {Object} [options] Options for the instance.
      * @param {Boolean} [options.disableRateLimiting=false] Disabled ratelimiting through the client instance.
      * @param {Number} [options.requestsPerMinute=60] Requests per minute for the main limiting bucket if ratelimiting is enabled. (Note that the replay endpoint has a special 10/minute bucket.)
+     * @param {Boolean} [options.parseData=false] If data should be parsed into our custom nodesu classes. (experimental and could be subject to break)
      * @return {Client} The osu! API client instance.
      */
     constructor(apiKey, options) {
@@ -58,6 +63,7 @@ class Client {
             options = {};
         this.disableRateLimiting = options.disableRateLimiting || false;
         this.requestsPerMinute = options.requestsPerMinute || 60;
+        this.parseData = options.parseData || false;
 
         this.requester = new Requester(this);
         if (!this.disableRateLimiting)
@@ -68,6 +74,7 @@ class Client {
         this.beatmaps = new BeatmapComponent(this);
         this.scores = new ScoresComponent(this);
         this.replay = new ReplayComponent(this);
+        this.multi = new MultiComponent(this);
     }
 
     /**
@@ -91,13 +98,13 @@ module.exports = Client;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BeatmapComponent.html">BeatmapComponent</a></li><li><a href="Client.html">Client</a></li><li><a href="Component.html">Component</a></li><li><a href="OsuApiError.html">OsuApiError</a></li><li><a href="Ratelimiting.html">Ratelimiting</a></li><li><a href="ReplayComponent.html">ReplayComponent</a></li><li><a href="Requester.html">Requester</a></li><li><a href="ScoresComponent.html">ScoresComponent</a></li><li><a href="UserComponent.html">UserComponent</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Converts">Converts</a></li><li><a href="global.html#LookupType">LookupType</a></li><li><a href="global.html#Mode">Mode</a></li><li><a href="global.html#Mods">Mods</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Beatmap.html">Beatmap</a></li><li><a href="BeatmapComponent.html">BeatmapComponent</a></li><li><a href="BeatmapScore.html">BeatmapScore</a></li><li><a href="Client.html">Client</a></li><li><a href="Multi.html">Multi</a></li><li><a href="MultiComponent.html">MultiComponent</a></li><li><a href="MultiGame.html">MultiGame</a></li><li><a href="MultiMatch.html">MultiMatch</a></li><li><a href="MultiScore.html">MultiScore</a></li><li><a href="OsuApiError.html">OsuApiError</a></li><li><a href="ReplayComponent.html">ReplayComponent</a></li><li><a href="Requester.html">Requester</a></li><li><a href="Score.html">Score</a></li><li><a href="ScoresComponent.html">ScoresComponent</a></li><li><a href="User.html">User</a></li><li><a href="UserComponent.html">UserComponent</a></li><li><a href="UserEvent.html">UserEvent</a></li><li><a href="UserScore.html">UserScore</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ApprovalStatus">ApprovalStatus</a></li><li><a href="global.html#Converts">Converts</a></li><li><a href="global.html#Genre">Genre</a></li><li><a href="global.html#Language">Language</a></li><li><a href="global.html#LookupType">LookupType</a></li><li><a href="global.html#Mode">Mode</a></li><li><a href="global.html#Mods">Mods</a></li><li><a href="global.html#MultiScoringType">MultiScoringType</a></li><li><a href="global.html#MultiTeam">MultiTeam</a></li><li><a href="global.html#MultiTeamType">MultiTeamType</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Thu Sep 08 2016 22:43:50 GMT+1000 (AEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Fri Sep 09 2016 23:48:23 GMT+1000 (AEST)
 </footer>
 
 <script> prettyPrint(); </script>

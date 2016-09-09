@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: OsuApiError</title>
+    <title>JSDoc: Source: struct/MultiScore.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,182 +17,38 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: OsuApiError</h1>
+    <h1 class="page-title">Source: struct/MultiScore.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>OsuApiError</h2>
-        
-            <div class="class-description">Error from the osu! API.</div>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-    <h2>Constructor</h2>
-    
-
-    <h4 class="name" id="OsuApiError"><span class="type-signature"></span>new OsuApiError<span class="signature">(message)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Creates the osu! API error object.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>message</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Describes the error caused from the osu! API.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="error_OsuApiError.js.html">error/OsuApiError.js</a>, <a href="error_OsuApiError.js.html#line6">line 6</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+const Score = require('./Score');
+
+/**
+ * Scores in multi match data class
+ * @extends Score
+ * @property {Number} slot 0-based index of the player's slot in the lobby
+ * @property {MultiTeam|null} team The team the player is on if relevant
+ * @property {Boolean} pass If the player passed (i.e. played through, no fails/revives)
+ */
+class MultiScore extends Score {
+    constructor(data) {
+        super(data);
+        this.slot = Number(data.slot);
+        this.team = data.team === '0' ? null : Number(data.team);
+        this.pass = !!data.pass;
+    }
+}
+
+module.exports = MultiScore;</code></pre>
+        </article>
+    </section>
 
 
 

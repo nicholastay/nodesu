@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: OsuApiError</title>
+    <title>JSDoc: Source: struct/Multi.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,182 +17,35 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: OsuApiError</h1>
+    <h1 class="page-title">Source: struct/Multi.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>OsuApiError</h2>
-        
-            <div class="class-description">Error from the osu! API.</div>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-    <h2>Constructor</h2>
-    
-
-    <h4 class="name" id="OsuApiError"><span class="type-signature"></span>new OsuApiError<span class="signature">(message)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Creates the osu! API error object.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>message</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Describes the error caused from the osu! API.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="error_OsuApiError.js.html">error/OsuApiError.js</a>, <a href="error_OsuApiError.js.html#line6">line 6</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+const MultiMatch = require('./MultiMatch')
+    , MultiGame = require('./MultiGame');
+
+/**
+ * Multi lobby class
+ * @property {MultiMatch} match Information about the multi match
+ * @property {MultiGame[]} games The games played within the multi
+ */
+class Multi {
+    constructor(data) {
+        this.match = new MultiMatch(data.match);
+        this.games = data.games.map(g => new MultiGame(g));
+    }
+}
+
+module.exports = Multi;</code></pre>
+        </article>
+    </section>
 
 
 
