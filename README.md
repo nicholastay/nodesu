@@ -1,18 +1,32 @@
+<div align="center">
+
+
 # nodesu
+
+
 a node.js osu! api wrapper.
 
-**nodesu has been rewritten from the ground up since 0.6.0. All sections of programs which utilize this library probably have to be rewritten!**
 
-**node.js >=4.0.0 must be used for this library to work!**
+[![NPM](https://nodei.co/npm/nodesu.png?downloads=true&stars=true)](https://nodei.co/npm/nodesu/)
+
+
+</div>
+
 
 
 ## Installing
+**node.js >=4.0.0** must be used for this library to work!
+
+
 ```
 $ npm install nodesu
 
 # or install from GitHub
 $ npm install nicholastay/nodesu
 ```
+
+*note!: nodesu has been rewritten from the ground up since v0.6.0. All sections of programs which utilize this library probably have to be rewritten if migrating from previous versions!*
+
 
 
 ## Getting Started
@@ -30,17 +44,21 @@ api.beatmaps
 ```
 
 
+
 ## Links
 * **Main repository**: https://github.com/nicholastay/nodesu/
 * **Documentation**: https://nicholastay.github.io/nodesu/
+
 
 
 ## Documentation note
 Most of what you want to find should be under the "Client" class, or the Modules section (categorized classes).
 
 
+
 ## Contributing
 Contributions are much welcome via issues or pull requests.
+
 
 
 ## License
