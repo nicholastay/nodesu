@@ -36,7 +36,7 @@ api.beatmaps
 
 
 ## Documentation note
-Most of what you want to find should be on the home page, or under the Modules (categorized classes).
+Most of what you want to find should be under the "Client" class, or the Modules section (categorized classes).
 
 
 ## Contributing
