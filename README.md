@@ -1,14 +1,12 @@
 <div align="center">
-
-
-# nodesu
-
-
+<h1>nodesu!</h1>
 a node.js osu! api wrapper.
 
+<p>
 
 [![NPM](https://nodei.co/npm/nodesu.png?downloads=true&stars=true)](https://nodei.co/npm/nodesu/)
 
+</p>
 
 </div>
 
