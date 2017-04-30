@@ -20,13 +20,23 @@ $ npm install nicholastay/nodesu
 const Nodesu = require('nodesu');
 
 const api = new Nodesu.Client('_api-key-here_');
-// ... see docs - typical usage = api.<component>.<function>();
+// ... see docs/Modules:Components - typical usage = api.<component>.<function>();
+// most functions return Promise objects.
+
+// eg: get beatmap data
+api.beatmaps
+    .getByBeatmapId('646609')
+    .then(console.log); // outputs to stdout.
 ```
 
 
 ## Links
 * **Main repository**: https://github.com/nicholastay/nodesu/
 * **Documentation**: https://nicholastay.github.io/nodesu/
+
+
+## Documentation note
+Most of what you want to find should be on the home page, or under the Modules (categorized classes).
 
 
 ## Contributing

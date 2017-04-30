@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: struct/User.js</title>
+    <title>JSDoc: Module: CustomClasses</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,68 +17,165 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: struct/User.js</h1>
+    <h1 class="page-title">Module: CustomClasses</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>'use strict';
+        
+            
+        
+    
+</header>
 
-const UserEvent = require('./UserEvent');
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">These are custom, parsed classes that can be used directly. Currently experimental and OFF by default.</div>
+        
 
-/**
- * User class.
- * @memberof module:CustomClasses
- * @property {Number} id User's ID [alias: userId]
- * @property {String} username Username [alias: name]
- * @property {Number} count300
- * @property {Number} count100
- * @property {Number} count50
- * @property {Number} playcount
- * @property {Number} rankedScore
- * @property {Number} totalScore
- * @property {Number} ppRank [alias: rank]
- * @property {Number} accuracy
- * @property {Number} countRankSS
- * @property {Number} countRankS
- * @property {Number} countRankA
- * @property {Number} country
- * @property {Number} ppCountryRank [alias: countryRank]
- * @property {UserEvent[]} events Array of user events
- */
-class User {
-    constructor(data) {
-        this.id = Number(data.user_id);
-        this.username = data.username;
-        this.count300 = Number(data.count300);
-        this.count100 = Number(data.count100);
-        this.count50 = Number(data.count50);
-        this.playcount = Number(data.playcount);
-        this.rankedScore = Number(data.ranked_score);
-        this.totalScore = Number(data.total_score);
-        this.ppRank = Number(data.pp_rank);
-        this.accuracy = Number(data.accuracy);
-        this.countRankSS = Number(data.count_rank_ss);
-        this.countRankS = Number(data.count_rank_s);
-        this.countRankA = Number(data.count_rank_a);
-        this.country = data.country;
-        this.ppCountryRank = Number(data.pp_country_rank);
-        this.events = data.events.map(d => new UserEvent(d));
-    }
+        
+            
 
-    get userId() { return this.id; }
-    get name() { return this.username; }
-    get rank() { return this.ppRank; }
-    get countryRank() { return this.ppCountryRank; }
-}
 
-module.exports = User;</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struct__doc.js.html">struct/_doc.js</a>, <a href="struct__doc.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// to enable the custom classes// when creating the client do this:new Nodesu.Client('apikey', {   parseData: true});</code></pre>
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="module-CustomClasses.Beatmap.html">Beatmap</a></dt>
+            <dd></dd>
+        
+            <dt><a href="module-CustomClasses.BeatmapScore.html">BeatmapScore</a></dt>
+            <dd></dd>
+        
+            <dt><a href="module-CustomClasses.Multi.html">Multi</a></dt>
+            <dd></dd>
+        
+            <dt><a href="module-CustomClasses.MultiGame.html">MultiGame</a></dt>
+            <dd></dd>
+        
+            <dt><a href="module-CustomClasses.MultiMatch.html">MultiMatch</a></dt>
+            <dd></dd>
+        
+            <dt><a href="module-CustomClasses.MultiScore.html">MultiScore</a></dt>
+            <dd></dd>
+        
+            <dt><a href="module-CustomClasses.Score.html">Score</a></dt>
+            <dd></dd>
+        
+            <dt><a href="module-CustomClasses.User.html">User</a></dt>
+            <dd></dd>
+        
+            <dt><a href="module-CustomClasses.UserEvent.html">UserEvent</a></dt>
+            <dd></dd>
+        
+            <dt><a href="module-CustomClasses.UserScore.html">UserScore</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
