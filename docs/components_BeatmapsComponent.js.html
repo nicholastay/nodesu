@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/UserComponent.js</title>
+    <title>JSDoc: Source: components/BeatmapsComponent.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/UserComponent.js</h1>
+    <h1 class="page-title">Source: components/BeatmapsComponent.js</h1>
 
     
 
@@ -30,81 +30,83 @@
 
 const Component = require('./Component')
     , ApiConstants = require('../Constants').API
-    , User = require('../struct/User')
-    , UserScore = require('../struct/UserScore');
+    , Beatmap = require('../struct/Beatmap');
 
 /**
- * User-related API component
+ * Beatmap-related API component
  * @memberof module:Components
  * @example
- * api.user
- *     .get('4222959')
+ * api.beatmaps
+ *     .getByBeatmapId('646609')
  *     .then(console.log);
  */
-class UserComponent extends Component {
-    /**
-     * Gets general user information.
-     * @param {String} user The username or id to lookup.
-     * @param {Mode} [mode] The gamemode.
-     * @param {Number} [eventDays] The max number of event days.
-     * @param {LookupType} [lookupType] The lookup type, id/string to lookup the user.
-     * @return {Promise&lt;Object|User>} The object from the API, or User object if parsing is enabled.
-     */
-    get(user, mode, eventDays, lookupType) {
-        let options = { u: user };
-        if (mode !== undefined)
-            options.m = mode;
-        if (eventDays !== undefined)
-            options.event_days = eventDays;
-        if (lookupType !== undefined)
-            options.type = lookupType
-
-        return this.api.requester.get(ApiConstants.USER_GET, options, true, true, User)
-            .then(d => d[0]); // there can only be one user
-    }
-
-    /**
-     * Gets the top scores for the user specified.
-     * @param {String} user The username or id to lookup.
-     * @param {Mode} [mode] The gamemode.
-     * @param {Number} [limit] Amount of results to limit to.
-     * @param {LookupType} [lookupType] The lookup type, id/string to lookup the user.
-     * @return {Promise&lt;Object[]|UserScore[]>} The object array from the API, or UserScore object array if parsing is enabled.
-     */
-    getBest(user, mode, limit, lookupType) {
-        let options = { u: user };
+class BeatmapsComponent extends Component {
+    _get(letter, id, mode, limit, includeConverts, lookupType) {
+        let options = {};
+        options[letter] = id;
         if (mode !== undefined)
             options.m = mode;
         if (limit !== undefined)
             options.limit = limit;
+        if (includeConverts !== undefined)
+            options.a = includeConverts;
         if (lookupType !== undefined)
             options.type = lookupType;
 
-        return this.api.requester.get(ApiConstants.USER_GET_BEST, options, true, true, UserScore);
+        return this.api.requester.get(ApiConstants.BEATMAPS_GET, options, true, true, Beatmap);
     }
 
     /**
-     * Gets the recent plays for the user specified.
-     * @param {String} user The username or id to lookup.
-     * @param {Mode} [mode] The gamemode.
-     * @param {Number} [limit] Amount of results to limit to.
-     * @param {LookupType} [lookupType] The lookup type, id/string to lookup the user.
-     * @return {Promise&lt;Object[]|UserScore[]>} The object array from the API, or UserScore object array if parsing is enabled.
+     * Get beatmaps via beatmap set ID.
+     * @param {String} setId The set ID to lookup beatmaps from.
+     * @param {Mode} [mode] The gamemode of maps to find.
+     * @param {Number} [limit] The limit of maps to find.
+     * @param {Converts} [includeConverts] If converts should be included in the lookup.
+     * @return {Promise&lt;Object[]|Beatmap[]>} The object array from the API, or Beatmap object array if parsing is enabled.
      */
-    getRecent(user, mode, limit, lookupType) {
-        let options = { u: user };
-        if (mode !== undefined)
-            options.m = mode;
-        if (limit !== undefined)
-            options.limit = limit;
-        if (lookupType !== undefined)
-            options.type = lookupType;
+    getBySetId(setId, mode, limit, includeConverts) {
+        return this._get('s', setId, mode, limit, includeConverts);
+    }
 
-        return this.api.requester.get(ApiConstants.USER_GET_RECENT, options, true, true, UserScore);
+    /**
+     * Get beatmaps via beatmap ID.
+     * @param {String} beatmapId The beatmap ID to lookup beatmaps from.
+     * @param {Mode} [mode] The gamemode of maps to find.
+     * @param {Number} [limit] The limit of maps to find.
+     * @param {Converts} [includeConverts] If converts should be included in the lookup.
+     * @return {Promise&lt;Object[]|Beatmap[]>} The object array from the API, or Beatmap object array if parsing is enabled.
+     */
+    getByBeatmapId(beatmapId, mode, limit, includeConverts) {
+        return this._get('b', beatmapId, mode, limit, includeConverts);
+    }
+
+    /**
+     * Get beatmaps via user ID.
+     * @param {String} user The user to lookup beatmaps from.
+     * @param {Mode} [mode] The gamemode of maps to find.
+     * @param {Number} [limit] The limit of maps to find.
+     * @param {Converts} [includeConverts] If converts should be included in the lookup.
+     * @param {LookupType} [lookupType] The type of lookup of the user.
+     * @return {Promise&lt;Object[]|Beatmap[]>} The object array from the API, or Beatmap object array if parsing is enabled.
+     */
+    getByUser(user, mode, limit, includeConverts, lookupType) {
+        return this._get('u', user, mode, limit, includeConverts, lookupType);
+    }
+
+    /**
+     * Get beatmaps via user ID.
+     * @param {String} hash The hash of the beatmap to lookup.
+     * @param {Mode} [mode] The gamemode of maps to find.
+     * @param {Number} [limit] The limit of maps to find.
+     * @param {Converts} [includeConverts] If converts should be included in the lookup.
+     * @return {Promise&lt;Object[]|Beatmap[]>} The object array from the API, or Beatmap object array if parsing is enabled.
+     */
+    getByBeatmapHash(hash, mode, limit, includeConverts) {
+        return this._get('h', hash, mode, limit, includeConverts);
     }
 }
 
-module.exports = UserComponent;</code></pre>
+module.exports = BeatmapsComponent;</code></pre>
         </article>
     </section>
 
