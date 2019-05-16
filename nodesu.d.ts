@@ -220,6 +220,10 @@ declare module 'nodesu' {
         approved: ApprovalStatusType;
         rankedStatus: ApprovalStatusType;
         /**
+         * Date it was first submitted
+         */
+        submitDate: Date;
+        /**
          * Date it was approved
          */
         approvedDate: Date;
