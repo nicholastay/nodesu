@@ -368,6 +368,14 @@ declare module 'nodesu' {
          */
         favoriteCount: number;
         /**
+         * User rating (1-10) [alias: userRating]
+         */
+        rating: number;
+        /**
+         * User rating (1-10) [alias of: rating]
+         */
+        userRating: number;
+        /**
          * number of playcounts
          */
         playcount: number;
