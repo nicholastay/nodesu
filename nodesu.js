@@ -17,5 +17,12 @@ exports.MultiTeamType = require('./lib/enum/MultiTeamType');
 
 // classes
 exports.Beatmap = require('./lib/struct/Beatmap');
+exports.BeatmapScore = require('./lib/struct/BeatmapScore');
+exports.Multi = require('./lib/struct/Multi');
+exports.MultiGame = require('./lib/struct/MultiGame');
+exports.MultiMatch = require('./lib/struct/MultiMatch');
+exports.MultiScore = require('./lib/struct/MultiScore');
+exports.Score = require('./lib/struct/Score');
 exports.User = require('./lib/struct/User');
 exports.UserEvent = require('./lib/struct/UserEvent');
+exports.UserScore = require('./lib/struct/UserScore');
