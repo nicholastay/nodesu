@@ -531,6 +531,10 @@ declare module 'nodesu' {
          * The time the match was started
          */
         startTime: Date;
+        /**
+         * The time the match was ended
+         */
+        endTime: Date;
     }
 
     /**
