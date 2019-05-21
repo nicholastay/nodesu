@@ -387,10 +387,6 @@ declare module 'nodesu' {
          * Speed difficulty rated by ppv2
          */
         diffSpeed: number;
-        /**
-         * Strain difficulty rated by ppv2
-         */
-        diffStrain: number;
     }
 
     /**
