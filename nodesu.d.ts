@@ -191,7 +191,7 @@ declare module 'nodesu' {
          * @param mods The bitwise combination for the mods.
          * @return Base64 replay file string.
          */
-        get(beatmapId: number, user: string | number, mode: ModeType, lookupType?: LookupTypeType, mods?: ModsType): Promise<string>;
+        get(beatmapId: number, user: string | number, mode: ModeType, lookupType?: LookupTypeType, mods?: ModsType): Promise<object | ReplayData>;
     }
 
     /**
@@ -573,6 +573,22 @@ declare module 'nodesu' {
          * User who set the score
          */
         userId: number;
+    }
+
+    /**
+     * Replay data class
+     */
+    export class ReplayData {
+        /**
+         * Constructs a ReplayData object from API data
+         * @param data Parsed API result
+         */
+         constructor(data: object);
+
+         /**
+          * The LZMA-stream part of the .osr file's replay data parsed as a buffer
+          */
+         content: Buffer;
     }
 
     /**
