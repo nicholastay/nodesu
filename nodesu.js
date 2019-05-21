@@ -22,6 +22,7 @@ exports.Multi = require('./lib/struct/Multi');
 exports.MultiGame = require('./lib/struct/MultiGame');
 exports.MultiMatch = require('./lib/struct/MultiMatch');
 exports.MultiScore = require('./lib/struct/MultiScore');
+exports.ReplayData = require('./lib/struct/ReplayData');
 exports.Score = require('./lib/struct/Score');
 exports.User = require('./lib/struct/User');
 exports.UserEvent = require('./lib/struct/UserEvent');
