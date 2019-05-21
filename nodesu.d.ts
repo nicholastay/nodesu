@@ -563,6 +563,10 @@ declare module 'nodesu' {
          * If the player passed (i.e. played through, no fails/revives)
          */
         pass: boolean;
+        /**
+         * User who set the score
+         */
+        userId: number;
     }
 
     /**
