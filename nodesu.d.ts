@@ -187,9 +187,11 @@ declare module 'nodesu' {
          * @param beatmapId The beatmap ID of the map.
          * @param userId The user that played that beatmap.
          * @param mode The gamemode of the play.
+         * @param lookupType The lookup type, id/string to lookup the user.
+         * @param mods The bitwise combination for the mods.
          * @return Base64 replay file string.
          */
-        get(beatmapId: number, userId: any, mode: ModeType): Promise<string>;
+        get(beatmapId: number, user: string | number, mode: ModeType, lookupType?: LookupTypeType, mods?: ModsType): Promise<string>;
     }
 
     /**
