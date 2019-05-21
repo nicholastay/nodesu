@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: enum/MultiTeamType.js</title>
+    <title>JSDoc: Source: struct/ReplayData.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: enum/MultiTeamType.js</h1>
+    <h1 class="page-title">Source: struct/ReplayData.js</h1>
 
     
 
@@ -29,18 +29,17 @@
             <pre class="prettyprint source linenums"><code>'use strict';
 
 /**
- * Enum for the multi team type
- * @readonly
- * @enum {Number}
+ * Replay data class.
+ * @memberof module:CustomClasses
+ * @property {Buffer} content A buffer containing the *LZMA* stream as part of the .osr file. Note that this is NOT the .osr file itself. You can read more about what this buffer actually contains on the API wiki. We are not turning this data into a fully-fledged .osr as this is *outside the scope of this library*. An external module should be used instead.
  */
-const MultiTeamType = {
-    tagTeamVs: 3,
-    teamVs: 2,
-    tagCoop: 1,
-    headToHead: 0,
-};
+class ReplayData {
+    constructor(data) {
+        this.content = Buffer.from(data.content, 'base64');
+    }
+}
 
-module.exports = MultiTeamType;</code></pre>
+module.exports = ReplayData;</code></pre>
         </article>
     </section>
 

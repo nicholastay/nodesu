@@ -114,6 +114,29 @@
 
         <tr>
             
+                <td class="name"><code>submitDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Date it was first submitted</td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>approvedDate</code></td>
             
 
@@ -291,7 +314,7 @@
 
             
 
-            <td class="description last">The difficulty rating (aka stars)</td>
+            <td class="description last">The difficulty rating [alias: stars]</td>
         </tr>
 
     
@@ -646,6 +669,29 @@
 
         <tr>
             
+                <td class="name"><code>rating</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">User rating (1-10) [alias: userRating]</td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>playcount</code></td>
             
 
@@ -758,29 +804,6 @@
         </tr>
 
     
-
-        <tr>
-            
-                <td class="name"><code>diffStrain</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Strain difficulty rated by ppv2</td>
-        </tr>
-
-    
     </tbody>
 </table>
 
@@ -816,7 +839,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="struct_Beatmap.js.html">struct/Beatmap.js</a>, <a href="struct_Beatmap.js.html#line37">line 37</a>
+        <a href="struct_Beatmap.js.html">struct/Beatmap.js</a>, <a href="struct_Beatmap.js.html#line38">line 38</a>
     </li></ul></dd>
     
 
@@ -876,13 +899,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Components.html">Components</a></li><li><a href="module-CustomClasses.html">CustomClasses</a></li><li><a href="module-Enums.html">Enums</a></li><li><a href="module-Errors.html">Errors</a></li></ul><h3>Classes</h3><ul><li><a href="Client.html">Client</a></li><li><a href="module-Components.BeatmapsComponent.html">BeatmapsComponent</a></li><li><a href="module-Components.MultiComponent.html">MultiComponent</a></li><li><a href="module-Components.ReplayComponent.html">ReplayComponent</a></li><li><a href="module-Components.ScoresComponent.html">ScoresComponent</a></li><li><a href="module-Components.UserComponent.html">UserComponent</a></li><li><a href="module-CustomClasses.Beatmap.html">Beatmap</a></li><li><a href="module-CustomClasses.BeatmapScore.html">BeatmapScore</a></li><li><a href="module-CustomClasses.Multi.html">Multi</a></li><li><a href="module-CustomClasses.MultiGame.html">MultiGame</a></li><li><a href="module-CustomClasses.MultiMatch.html">MultiMatch</a></li><li><a href="module-CustomClasses.MultiScore.html">MultiScore</a></li><li><a href="module-CustomClasses.Score.html">Score</a></li><li><a href="module-CustomClasses.User.html">User</a></li><li><a href="module-CustomClasses.UserEvent.html">UserEvent</a></li><li><a href="module-CustomClasses.UserScore.html">UserScore</a></li><li><a href="module-Errors.OsuApiError.html">OsuApiError</a></li><li><a href="Requester.html">Requester</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ApprovalStatus">ApprovalStatus</a></li><li><a href="global.html#Converts">Converts</a></li><li><a href="global.html#Genre">Genre</a></li><li><a href="global.html#Language">Language</a></li><li><a href="global.html#LookupType">LookupType</a></li><li><a href="global.html#Mode">Mode</a></li><li><a href="global.html#Mods">Mods</a></li><li><a href="global.html#MultiScoringType">MultiScoringType</a></li><li><a href="global.html#MultiTeam">MultiTeam</a></li><li><a href="global.html#MultiTeamType">MultiTeamType</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Components.html">Components</a></li><li><a href="module-CustomClasses.html">CustomClasses</a></li><li><a href="module-Enums.html">Enums</a></li><li><a href="module-Errors.html">Errors</a></li></ul><h3>Classes</h3><ul><li><a href="Client.html">Client</a></li><li><a href="module-Components.BeatmapsComponent.html">BeatmapsComponent</a></li><li><a href="module-Components.MultiComponent.html">MultiComponent</a></li><li><a href="module-Components.ReplayComponent.html">ReplayComponent</a></li><li><a href="module-Components.ScoresComponent.html">ScoresComponent</a></li><li><a href="module-Components.UserComponent.html">UserComponent</a></li><li><a href="module-CustomClasses.Beatmap.html">Beatmap</a></li><li><a href="module-CustomClasses.BeatmapScore.html">BeatmapScore</a></li><li><a href="module-CustomClasses.Multi.html">Multi</a></li><li><a href="module-CustomClasses.MultiGame.html">MultiGame</a></li><li><a href="module-CustomClasses.MultiMatch.html">MultiMatch</a></li><li><a href="module-CustomClasses.MultiScore.html">MultiScore</a></li><li><a href="module-CustomClasses.ReplayData.html">ReplayData</a></li><li><a href="module-CustomClasses.Score.html">Score</a></li><li><a href="module-CustomClasses.User.html">User</a></li><li><a href="module-CustomClasses.UserEvent.html">UserEvent</a></li><li><a href="module-CustomClasses.UserScore.html">UserScore</a></li><li><a href="module-Errors.OsuApiError.html">OsuApiError</a></li><li><a href="Requester.html">Requester</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ApprovalStatus">ApprovalStatus</a></li><li><a href="global.html#Converts">Converts</a></li><li><a href="global.html#Genre">Genre</a></li><li><a href="global.html#Language">Language</a></li><li><a href="global.html#LookupType">LookupType</a></li><li><a href="global.html#Mode">Mode</a></li><li><a href="global.html#Mods">Mods</a></li><li><a href="global.html#MultiScoringType">MultiScoringType</a></li><li><a href="global.html#MultiTeam">MultiTeam</a></li><li><a href="global.html#MultiTeamType">MultiTeamType</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu May 09 2019 19:34:28 GMT+1000 (GMT+10:00)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue May 21 2019 18:43:57 GMT+1000 (GMT+10:00)
 </footer>
 
 <script> prettyPrint(); </script>

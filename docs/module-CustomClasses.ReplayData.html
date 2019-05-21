@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: enum/MultiTeamType.js</title>
+    <title>JSDoc: Class: ReplayData</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,188 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: enum/MultiTeamType.js</h1>
+    <h1 class="page-title">Class: ReplayData</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>'use strict';
+        <h2><span class="attribs"><span class="type-signature"></span></span>
+            <span class="ancestors"><a href="module-CustomClasses.html">CustomClasses</a>.</span>ReplayData<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">Replay data class.</div>
+        
+    
+</header>
 
-/**
- * Enum for the multi team type
- * @readonly
- * @enum {Number}
- */
-const MultiTeamType = {
-    tagTeamVs: 3,
-    teamVs: 2,
-    tagCoop: 1,
-    headToHead: 0,
-};
+<article>
+    <div class="container-overview">
+    
+        
 
-module.exports = MultiTeamType;</code></pre>
-        </article>
-    </section>
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="ReplayData"><span class="type-signature"></span>new ReplayData<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>content</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Buffer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A buffer containing the *LZMA* stream as part of the .osr file. Note that this is NOT the .osr file itself. You can read more about what this buffer actually contains on the API wiki. We are not turning this data into a fully-fledged .osr as this is *outside the scope of this library*. An external module should be used instead.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="struct_ReplayData.js.html">struct/ReplayData.js</a>, <a href="struct_ReplayData.js.html#line8">line 8</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

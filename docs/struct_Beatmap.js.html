@@ -32,6 +32,7 @@
  * Beatmap class
  * @memberof module:CustomClasses
  * @property {ApprovalStatus} approved Approval status [alias: rankedStatus]
+ * @property {Date} submitDate Date it was first submitted
  * @property {Date} approvedDate Date it was approved
  * @property {Date} lastUpdate The date the map was last updated
  * @property {String} artist The song artist
@@ -39,7 +40,7 @@
  * @property {Number} setId Beatmap set id [alias: beatmapSetId]
  * @property {Number} bpm Song BPM
  * @property {String} creator The beatmap creator [alias: mapper]
- * @property {Number} difficultyRating The difficulty rating (aka stars)
+ * @property {Number} difficultyRating The difficulty rating [alias: stars]
  * @property {Number} diffSize Difficulty size (aka CS) [alias: circleSize, CS]
  * @property {Number} diffOverall Difficulty overall (aka OD) [alias: overallDifficulty, OD]
  * @property {Number} diffApproach Difficulty approach (aka AR) [alias: approachRate, AR]
@@ -55,16 +56,17 @@
  * @property {Mode} mode The gamemode
  * @property {String[]} tags Tags
  * @property {Number} favouriteCount Number of favorites on the map [alias: favoriteCount]
+ * @property {Number} rating User rating (1-10) [alias: userRating]
  * @property {Number} playcount Number of playcounts
  * @property {Number} passcount Number of passcount
  * @property {Number} maxCombo Number of map max combo
  * @property {Number} diffAim Aim difficulty rated by ppv2
  * @property {Number} diffSpeed Speed difficulty rated by ppv2
- * @property {Number} diffStrain Strain difficulty rated by ppv2
  */
 class Beatmap {
     constructor(data) {
         this.approved = Number(data.approved);
+        this.submitDate = new Date(data.submit_date + ' GMT');
         this.approvedDate = new Date(data.approved_date + ' GMT');
         this.lastUpdate = new Date(data.last_update + ' GMT');
         this.artist = data.artist;
@@ -88,12 +90,12 @@ class Beatmap {
         this.mode = Number(data.mode);
         this.tags = data.tags.split(' ');
         this.favouriteCount = Number(data.favourite_count);
+        this.rating = Number(data.rating);
         this.playcount = Number(data.playcount);
         this.passcount = Number(data.passcount);
         this.maxCombo = Number(data.max_combo);
         this.diffAim = Number(data.diff_aim);
         this.diffSpeed = Number(data.diff_speed);
-        this.diffStrain = Number(data.diff_strain);
     }
 
     // aliases
@@ -111,6 +113,7 @@ class Beatmap {
     get AR() { return this.diffApproach; }
     get HP() { return this.diffDrain; }
     get favoriteCount() { return this.favouriteCount; }
+    get userRating() { return this.rating; }
     get difficultyName() { return this.version; }
 
     toString() { return `${this.artist} - ${this.title} [${this.version}] (mapped by ${this.creator})`; }
@@ -126,13 +129,13 @@ module.exports = Beatmap;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Components.html">Components</a></li><li><a href="module-CustomClasses.html">CustomClasses</a></li><li><a href="module-Enums.html">Enums</a></li><li><a href="module-Errors.html">Errors</a></li></ul><h3>Classes</h3><ul><li><a href="Client.html">Client</a></li><li><a href="module-Components.BeatmapsComponent.html">BeatmapsComponent</a></li><li><a href="module-Components.MultiComponent.html">MultiComponent</a></li><li><a href="module-Components.ReplayComponent.html">ReplayComponent</a></li><li><a href="module-Components.ScoresComponent.html">ScoresComponent</a></li><li><a href="module-Components.UserComponent.html">UserComponent</a></li><li><a href="module-CustomClasses.Beatmap.html">Beatmap</a></li><li><a href="module-CustomClasses.BeatmapScore.html">BeatmapScore</a></li><li><a href="module-CustomClasses.Multi.html">Multi</a></li><li><a href="module-CustomClasses.MultiGame.html">MultiGame</a></li><li><a href="module-CustomClasses.MultiMatch.html">MultiMatch</a></li><li><a href="module-CustomClasses.MultiScore.html">MultiScore</a></li><li><a href="module-CustomClasses.Score.html">Score</a></li><li><a href="module-CustomClasses.User.html">User</a></li><li><a href="module-CustomClasses.UserEvent.html">UserEvent</a></li><li><a href="module-CustomClasses.UserScore.html">UserScore</a></li><li><a href="module-Errors.OsuApiError.html">OsuApiError</a></li><li><a href="Requester.html">Requester</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ApprovalStatus">ApprovalStatus</a></li><li><a href="global.html#Converts">Converts</a></li><li><a href="global.html#Genre">Genre</a></li><li><a href="global.html#Language">Language</a></li><li><a href="global.html#LookupType">LookupType</a></li><li><a href="global.html#Mode">Mode</a></li><li><a href="global.html#Mods">Mods</a></li><li><a href="global.html#MultiScoringType">MultiScoringType</a></li><li><a href="global.html#MultiTeam">MultiTeam</a></li><li><a href="global.html#MultiTeamType">MultiTeamType</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Components.html">Components</a></li><li><a href="module-CustomClasses.html">CustomClasses</a></li><li><a href="module-Enums.html">Enums</a></li><li><a href="module-Errors.html">Errors</a></li></ul><h3>Classes</h3><ul><li><a href="Client.html">Client</a></li><li><a href="module-Components.BeatmapsComponent.html">BeatmapsComponent</a></li><li><a href="module-Components.MultiComponent.html">MultiComponent</a></li><li><a href="module-Components.ReplayComponent.html">ReplayComponent</a></li><li><a href="module-Components.ScoresComponent.html">ScoresComponent</a></li><li><a href="module-Components.UserComponent.html">UserComponent</a></li><li><a href="module-CustomClasses.Beatmap.html">Beatmap</a></li><li><a href="module-CustomClasses.BeatmapScore.html">BeatmapScore</a></li><li><a href="module-CustomClasses.Multi.html">Multi</a></li><li><a href="module-CustomClasses.MultiGame.html">MultiGame</a></li><li><a href="module-CustomClasses.MultiMatch.html">MultiMatch</a></li><li><a href="module-CustomClasses.MultiScore.html">MultiScore</a></li><li><a href="module-CustomClasses.ReplayData.html">ReplayData</a></li><li><a href="module-CustomClasses.Score.html">Score</a></li><li><a href="module-CustomClasses.User.html">User</a></li><li><a href="module-CustomClasses.UserEvent.html">UserEvent</a></li><li><a href="module-CustomClasses.UserScore.html">UserScore</a></li><li><a href="module-Errors.OsuApiError.html">OsuApiError</a></li><li><a href="Requester.html">Requester</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ApprovalStatus">ApprovalStatus</a></li><li><a href="global.html#Converts">Converts</a></li><li><a href="global.html#Genre">Genre</a></li><li><a href="global.html#Language">Language</a></li><li><a href="global.html#LookupType">LookupType</a></li><li><a href="global.html#Mode">Mode</a></li><li><a href="global.html#Mods">Mods</a></li><li><a href="global.html#MultiScoringType">MultiScoringType</a></li><li><a href="global.html#MultiTeam">MultiTeam</a></li><li><a href="global.html#MultiTeamType">MultiTeamType</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu May 09 2019 19:34:28 GMT+1000 (GMT+10:00)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue May 21 2019 18:43:57 GMT+1000 (GMT+10:00)
 </footer>
 
 <script> prettyPrint(); </script>
