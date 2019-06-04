@@ -322,6 +322,18 @@ declare module 'nodesu' {
          */
         HP: number;
         /**
+         * Amount of normal notes (hitcircles).
+         */
+        countNormal: number;
+        /**
+         * Amount of slider notes.
+         */
+        countSlider: number;
+        /**
+         * Amount of spinners.
+         */
+        countSpinner: number;
+        /**
          * Drain length
          */
         hitLength: number;
