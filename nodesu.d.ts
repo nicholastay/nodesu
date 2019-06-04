@@ -266,6 +266,14 @@ declare module 'nodesu' {
          */
         mapper: string;
         /**
+         * The user id of the beatmap creator [alias: mapperId]
+         */
+        creatorId: number;
+        /**
+         * The user id of the beatmap creator [alias of: creatorId]
+         */
+        mapperId: number;
+        /**
          * The difficulty rating [alias: stars]
          */
         difficultyRating: number;
