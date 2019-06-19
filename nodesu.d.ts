@@ -15,6 +15,10 @@ declare module 'nodesu' {
          * If data should be parsed into our custom nodesu classes (experimental and could be subject to break). Default: false
          */
         parseData?: boolean
+        /**
+         * osu! API base URL. May be changed for mocking purposes, or for using a rate-limiting proxy.
+         */
+        baseUrl?: string
     }
 
     /**
