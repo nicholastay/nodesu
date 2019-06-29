@@ -1,6 +1,6 @@
 {
   "name": "nodesu",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "a node.js osu! api wrapper",
   "main": "nodesu.js",
   "scripts": {
