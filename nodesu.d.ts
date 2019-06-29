@@ -394,6 +394,22 @@ declare module 'nodesu' {
          */
         userRating: number;
         /**
+         * If beatmap is not downloadable [reverse alias: downloadAvailable]
+         */
+        downloadUnavailable: boolean;
+        /**
+         * If beatmap is downloadable [reverse alias of: downloadUnavailable]
+         */
+        downloadAvailable: boolean;
+        /**
+         * If beatmap is downloadable but has no audio [reverse alias: audioAvailable]
+         */
+        audioUnavailable: boolean;
+        /**
+         * If beatmap is downloadable and has audio [reverse alias of: audioUnavailable]
+         */
+        audioAvailable: boolean;
+        /**
          * number of playcounts
          */
         playcount: number;
