@@ -330,6 +330,18 @@ declare module 'nodesu' {
          */
         HP: number;
         /**
+         * Amount of normal notes (hitcircles).
+         */
+        countNormal: number;
+        /**
+         * Amount of slider notes.
+         */
+        countSlider: number;
+        /**
+         * Amount of spinners.
+         */
+        countSpinner: number;
+        /**
          * Drain length
          */
         hitLength: number;
@@ -389,6 +401,22 @@ declare module 'nodesu' {
          * User rating (1-10) [alias of: rating]
          */
         userRating: number;
+        /**
+         * If beatmap is not downloadable [reverse alias: downloadAvailable]
+         */
+        downloadUnavailable: boolean;
+        /**
+         * If beatmap is downloadable [reverse alias of: downloadUnavailable]
+         */
+        downloadAvailable: boolean;
+        /**
+         * If beatmap is downloadable but has no audio [reverse alias: audioAvailable]
+         */
+        audioUnavailable: boolean;
+        /**
+         * If beatmap is downloadable and has audio [reverse alias of: audioUnavailable]
+         */
+        audioAvailable: boolean;
         /**
          * number of playcounts
          */
