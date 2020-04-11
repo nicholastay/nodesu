@@ -1,6 +1,6 @@
 {
   "name": "nodesu",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "a node.js osu! api wrapper",
   "main": "nodesu.js",
   "scripts": {
@@ -28,6 +28,6 @@
     "limiter": "^1.1.0"
   },
   "devDependencies": {
-    "jsdoc": "^3.4.0"
+    "jsdoc": "^3.6.4"
   }
 }
