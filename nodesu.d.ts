@@ -441,6 +441,18 @@ declare module 'nodesu' {
          * Speed difficulty rated by ppv2
          */
         diffSpeed: number;
+        /**
+         * Beatmap packs including this beatmap
+         */
+        packs: string[];
+        /**
+         * True if this beatmap contains a video
+         */
+        video: boolean;
+        /**
+         * True if this beatmap contains a storyboard
+         */
+        storyboard: boolean;
     }
 
     /**
