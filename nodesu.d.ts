@@ -163,6 +163,17 @@ declare module 'nodesu' {
          * @return The object array from the API, or Beatmap object array if parsing is enabled.
          */
         getByBeatmapHash(hash: string, mode?: ModeType, limit?: number, includeConverts?: ConvertsType, mods?: ModsType): Promise<object[] | Beatmap[]>;
+
+        /**
+         * Get beatmaps via their ranked/approval date.
+         * @param since Minimum approved_date. Date object or MySQL date.
+         * @param mode The gamemode of maps to find.
+         * @param limit The limit of maps to find.
+         * @param includeConverts If converts should be included in the lookup.
+         * @param mods Applied mods.
+         * @return The object array from the API, or Beatmap object array if parsing is enabled.
+         */
+         getSince(since: Date | string, mode?: ModeType, limit?: number, includeConverts?: ConvertsType, mods?: ModsType): Promise<object[] | Beatmap[]>;
     }
 
     /**
@@ -441,6 +452,18 @@ declare module 'nodesu' {
          * Speed difficulty rated by ppv2
          */
         diffSpeed: number;
+        /**
+         * Beatmap packs including this beatmap
+         */
+        packs: string[];
+        /**
+         * True if this beatmap contains a video
+         */
+        video: boolean;
+        /**
+         * True if this beatmap contains a storyboard
+         */
+        storyboard: boolean;
     }
 
     /**
