@@ -712,7 +712,9 @@ declare module 'nodesu' {
          */
         pp: number;
         accuracy: number;
+        countRankSSH: number;
         countRankSS: number;
+        countRankSH: number;
         countRankS: number;
         countRankA: number;
         country: number;
