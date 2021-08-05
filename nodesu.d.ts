@@ -717,7 +717,7 @@ declare module 'nodesu' {
         countRankSH: number;
         countRankS: number;
         countRankA: number;
-        country: number;
+        country: string;
         /**
          * [alias: playTime]
          */
