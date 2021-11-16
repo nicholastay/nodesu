@@ -661,6 +661,10 @@ declare module 'nodesu' {
         constructor(data: object);
 
         /**
+         * Score ID
+         */
+        scoreId: number;
+        /**
          * Score achieved
          */
         score: number;
